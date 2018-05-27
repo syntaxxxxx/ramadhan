@@ -12,7 +12,7 @@
         android:src="@drawable/walpaper" />
 
     <TextView
-        android:id="@+id/txt_date"
+        android:id="@+id/tv_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -27,7 +27,7 @@
         android:id="@+id/tv_hours"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txt_date"
+        android:layout_below="@+id/tv_date"
         android:layout_centerHorizontal="true"
         android:text="05:00 AM"
         android:textColor="#fff"
@@ -48,7 +48,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@+id/iv_masjid"
         android:orientation="vertical"
         android:padding="8dp">

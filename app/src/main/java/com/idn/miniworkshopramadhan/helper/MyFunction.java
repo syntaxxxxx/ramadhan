@@ -6,44 +6,33 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+/**
+ * Created by idn on 5/27/2018.
+ */
 
 public class MyFunction extends AppCompatActivity {
 
-    public Context c;
+    private Context c;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         c = MyFunction.this;
 
     }
 
-
-    public void intent(Context c, Class destination) {
+    public void intent(Class destination) {
         startActivity(new Intent(c, destination));
 
     }
-
 
     public void toast(String message) {
         Toast.makeText(c, message, Toast.LENGTH_SHORT).show();
 
     }
 
-
     public void toasttt(String message) {
         Toast.makeText(c, message, Toast.LENGTH_LONG).show();
 
     }
-
-
-/*    public String currentDate() {
-        @SuppressLint("SimpleDateFormat") DateFormat dateFormat
-                = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
-
-        Date date = new Date();
-        return dateFormat.format(date);
-
-    }*/
 }

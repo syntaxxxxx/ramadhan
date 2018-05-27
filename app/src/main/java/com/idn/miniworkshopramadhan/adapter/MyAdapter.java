@@ -13,31 +13,40 @@ import com.idn.miniworkshopramadhan.response.ItemsItem;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     private Context c;
-    List<ItemsItem> dataSholat;
+    private List<ItemsItem> mDataset;
 
-    private String namaSholat[] = {"Shubuh", "Dzuhur", "Ashar", "Magrib", "Isya"};
-    private String waktuSholat[];
+    private String nameSholat[] = {"Subuh", "Dzuhur", "Ashar", "Maghrib", "Isya"};
+
+    static class ViewHolder extends RecyclerView.ViewHolder {
+
+        private TextView tvNameSholat, tvTimeSholat;
+
+        ViewHolder(View v) {
+            super(v);
+
+            tvNameSholat = v.findViewById(R.id.tv_name);
+            tvTimeSholat = v.findViewById(R.id.tv_timer);
+
+        }
+    }
 
 
-    public MyAdapter(Context c, List<ItemsItem> dataSholattt) {
-        this.c = c;
-        dataSholat = dataSholattt;
+    public MyAdapter(Context cc, List<ItemsItem> dataSchedule) {
+        this.c = cc;
+        mDataset = dataSchedule;
     }
 
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View v = LayoutInflater.from(c).inflate(R.layout.item_list, parent, false);
-        ViewHolder holder = new ViewHolder(v);
-        return holder;
+        ViewHolder vh = new ViewHolder(v);
+        return vh;
 
     }
 
@@ -45,35 +54,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        waktuSholat = new String[]{
-                dataSholat.get(getItemCount()).getFajr(),
-                dataSholat.get(getItemCount()).getDhuhr(),
-                dataSholat.get(getItemCount()).getAsr(),
-                dataSholat.get(getItemCount()).getMaghrib(),
-                dataSholat.get(getItemCount()).getIsha()};
+        String[] timeSholat = new String[]{
+                mDataset.get(getItemCount()).getFajr(),
+                mDataset.get(getItemCount()).getDhuhr(),
+                mDataset.get(getItemCount()).getAsr(),
+                mDataset.get(getItemCount()).getMaghrib(),
+                mDataset.get(getItemCount()).getIsha()
+        };
 
-        holder.tvName.setText(namaSholat[position]);
-        holder.tvTimer.setText(waktuSholat[position]);
+        holder.tvNameSholat.setText(nameSholat[position]);
+        holder.tvTimeSholat.setText(timeSholat[position]);
 
     }
 
 
     @Override
     public int getItemCount() {
-        return namaSholat.length;
-    }
-
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-
-        @BindView(R.id.tv_name)
-        TextView tvName;
-        @BindView(R.id.tv_timer)
-        TextView tvTimer;
-
-        public ViewHolder(View v) {
-            super(v);
-            ButterKnife.bind(this, v);
-
-        }
+        return nameSholat.length;
     }
 }

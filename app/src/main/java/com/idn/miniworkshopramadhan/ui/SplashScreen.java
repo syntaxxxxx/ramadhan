@@ -63,7 +63,7 @@ public class SplashScreen extends AppCompatActivity {
 
                 } finally {
                     Intent i = new Intent(getApplicationContext(),
-                            LoginPreference.class);
+                            MainActivity.class);
 
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
                             | Intent.FLAG_ACTIVITY_NEW_TASK);
