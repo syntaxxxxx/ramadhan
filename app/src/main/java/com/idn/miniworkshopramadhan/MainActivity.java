@@ -38,7 +38,7 @@ import retrofit2.Response;
 public class MainActivity extends MyFunction {
 
     private RecyclerView rv;
-    private TextView tvLocation, tvHours, tvDate, tvInputLoc, tvAbout;
+    private TextView tvLocation, tvHours, tvDate, tvInputLoc;
     private String loginLocation;
     int PLACE_AUTOCOMPLETE_REQUEST_CODE;
 
@@ -59,7 +59,7 @@ public class MainActivity extends MyFunction {
                 new LoginActivity.Preference(MainActivity.this);
         loginLocation = preference.getLocLogin();
 
-
+        // cek kalo belum login move ke login
         if (TextUtils.isEmpty(loginLocation)) {
             intent(LoginActivity.class);
             finish();
@@ -75,7 +75,7 @@ public class MainActivity extends MyFunction {
     }
 
 
-    //TODO 5
+    //TODO 5 get jadwal sholat
     private void getScheduleSholat(String detailPlaces) {
 
         String location = detailPlaces;
@@ -116,7 +116,7 @@ public class MainActivity extends MyFunction {
 
             @Override
             public void onFailure(Call<ResponseApi> call, Throwable t) {
-                t.getMessage();
+                t.printStackTrace();
 
             }
         });
@@ -179,6 +179,7 @@ public class MainActivity extends MyFunction {
     }
 
 
+    //TODO 7 change new location
     private void changeLocation() {
 
         LayoutInflater inflater = getLayoutInflater();
@@ -208,17 +209,16 @@ public class MainActivity extends MyFunction {
     }
 
 
+    //TODO 8 cari location baru
     private void findNewLoc() {
 
         try {
-
             AutocompleteFilter.Builder filter = new AutocompleteFilter.Builder();
             filter.setCountry("id");
 
             Intent i = new PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_OVERLAY)
                     .setFilter(filter.build())
                     .build(this);
-
             startActivityForResult(i, PLACE_AUTOCOMPLETE_REQUEST_CODE);
 
         } catch (GooglePlayServicesNotAvailableException
@@ -229,6 +229,7 @@ public class MainActivity extends MyFunction {
     }
 
 
+    //TODO 9 result callback
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -255,6 +256,8 @@ public class MainActivity extends MyFunction {
 
     }
 
+
+    //TODO 6 logout call preference
     private void logout() {
 
         LoginActivity.Preference preference =

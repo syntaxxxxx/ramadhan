@@ -5,12 +5,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
-import com.idn.miniworkshopramadhan.MainActivity;
 import com.idn.miniworkshopramadhan.R;
 
 public class SplashScreen extends AppCompatActivity {
@@ -20,9 +19,11 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
+        // jika benar
         if (isInternet()) {
             splashScreen();
 
+            // jika salah
         } else {
             showAlertDialog(this, "Not Connection",
                     "Turn On Wif or Mobile Data", false);
@@ -31,9 +32,8 @@ public class SplashScreen extends AppCompatActivity {
     }
 
 
-    private void showAlertDialog(
-            Context c, String title,
-            String message, Boolean status) {
+    //TODO 1 create alert dialog
+    private void showAlertDialog(Context c, String title, String message, Boolean status) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(title);
@@ -51,6 +51,7 @@ public class SplashScreen extends AppCompatActivity {
     }
 
 
+    //TODO 2 create splashscreen
     private void splashScreen() {
         Thread thread = new Thread() {
 
@@ -63,7 +64,7 @@ public class SplashScreen extends AppCompatActivity {
 
                 } finally {
                     Intent i = new Intent(getApplicationContext(),
-                            MainActivity.class);
+                            LoginActivity.class);
 
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
                             | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -79,6 +80,7 @@ public class SplashScreen extends AppCompatActivity {
     }
 
 
+    //TODO 3 create method untuk cek connection
     public boolean isInternet() {
 
         ConnectivityManager manager =
@@ -93,6 +95,7 @@ public class SplashScreen extends AppCompatActivity {
                 for (int i = 0; i < info.length; i++) {
                     if (info[i].getState() == NetworkInfo.State.CONNECTED) {
                         return true;
+
                     }
                 }
             }

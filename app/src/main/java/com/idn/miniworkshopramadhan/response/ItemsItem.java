@@ -33,14 +33,6 @@ public class ItemsItem{
 		return isha;
 	}
 
-	public String getShurooq(){
-		return shurooq;
-	}
-
-	public String getDateFor(){
-		return dateFor;
-	}
-
 	public String getDhuhr(){
 		return dhuhr;
 	}

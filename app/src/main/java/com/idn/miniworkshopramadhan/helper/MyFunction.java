@@ -30,9 +30,4 @@ public class MyFunction extends AppCompatActivity {
         Toast.makeText(c, message, Toast.LENGTH_SHORT).show();
 
     }
-
-    public void toasttt(String message) {
-        Toast.makeText(c, message, Toast.LENGTH_LONG).show();
-
-    }
 }

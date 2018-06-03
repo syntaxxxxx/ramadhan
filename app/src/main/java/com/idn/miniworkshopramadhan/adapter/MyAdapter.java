@@ -26,7 +26,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         ViewHolder(View v) {
             super(v);
-
             tvNameSholat = v.findViewById(R.id.tv_name);
             tvTimeSholat = v.findViewById(R.id.tv_timer);
 
