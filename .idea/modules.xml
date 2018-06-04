@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/WorkshopRamadhan.iml" filepath="$PROJECT_DIR$/WorkshopRamadhan.iml" />
+      <module fileurl="file://E:\Harian\ramadhan\WorkshopRamadhan.iml" filepath="E:\Harian\ramadhan\WorkshopRamadhan.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://E:\Harian\ramadhan\app\app.iml" filepath="E:\Harian\ramadhan\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ramadhan.iml" filepath="$PROJECT_DIR$/ramadhan.iml" />
     </modules>
   </component>
 </project>
